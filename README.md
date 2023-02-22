@@ -1,2 +1,2 @@
 # rslang-cards
-https://rslang-cards.netlify.app
+https://rs-lang-cards.netlify.app
