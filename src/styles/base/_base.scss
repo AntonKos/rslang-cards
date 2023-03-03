@@ -26,13 +26,10 @@ body {
     width: 350px;
     height: 100%;
     z-index: 5;
-    background: #63d9fd;
+    background: #20d2ff;
     left: 0;
     top: 0;
     transform: translateX(0);
-    &.train {
-        background: linear-gradient(180deg, #0099ae, #00bf82);
-    }
     &__items {
         margin: 120px 80px;
         list-style-type: none;
@@ -59,6 +56,9 @@ body {
         transform: translateX(-100%);
         transition-duration: 0.5s;
     }
+    &.active-menu {
+      transition-duration: 0.5s;
+  }
 }
 
 .wrapper {

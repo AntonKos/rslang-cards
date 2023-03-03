@@ -23,10 +23,12 @@ export default class BaseView {
 
     setMenuOpen(isMenuOpen:any) {
         if (isMenuOpen) {
+            this.menu.classList.add('active-menu');
             this.menu.classList.remove('hidden');
             this.burger.classList.add('active');
             this.burger.querySelectorAll('.burger-line').forEach((element:any) => element.classList.add('active'));
         } else {
+            this.menu.classList.remove('active-menu');
             this.menu.classList.add('hidden');
             this.burger.classList.remove('active');
             this.burger.querySelectorAll('.burger-line').forEach((element:any) => element.classList.remove('active'));
