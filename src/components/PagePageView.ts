@@ -17,6 +17,7 @@ export default class PagePageView extends BaseView {
   buttonWrapperForQuote: any;
   gameInProcess: boolean;
   audioQuote: any;
+  quoteTextWrapper:any;
 
   constructor() {
     super();
@@ -25,6 +26,7 @@ export default class PagePageView extends BaseView {
     this.starLine = this.main.querySelector('.star-line');
     this.buttonWrapper = this.main.querySelector('.button-wrapper');
     this.buttonWrapperForQuote = this.main.querySelector('.quote-button-wrapper');
+    this.quoteTextWrapper = this.main.querySelector('.quote-text-wrapper');
     this.gameInProcess = false;
   }
 
@@ -48,6 +50,10 @@ export default class PagePageView extends BaseView {
     this.gameInProcess = true;
 
     const randomNumber = Math.floor(Math.random() * cards.length);
+
+    //вывод цитаты
+
+    this.quoteTextWrapper.innerHTML = cards[randomNumber].textQuote;
 
     const audio = this.wrapper.querySelector(`audio.${cards[randomNumber].word}`);
     audio.play();

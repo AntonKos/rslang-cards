@@ -8,6 +8,7 @@ export default class PagePageController extends BaseController {
     this.analiticsCounter = new AnaliticsCounter(this.model.currentMenuItem);
 
     this.view.bindNewGameStarted(this.handleNewGameStarted);
+
     this.view.bindWordSelected(this.handleWordSelected);
     this.view.bindPlayAudioStarted(this.handlePlayAudioStarted);
     this.view.bindCorrectAnswerRecieved(this.handleCorrectAnswerRecieved);
@@ -51,9 +52,8 @@ export default class PagePageController extends BaseController {
   };
 
   handleNewGameStarted = () => {
-    //click btn new game
 
-    this.model.cardsForGameRemaining = this.model.cards.slice(0); //срабатывание геттера model.cardsForGame
+    this.model.cardsForGameRemaining = this.model.cards.slice(0);
     this.model.gameErrors = 0;
     this.model.cardsForGame = this.model.cardsForGame.sort(() => Math.random() - 0.5); //срабатывание сеттера model.cardsForGame и геттера во второй части
   };
@@ -108,7 +108,6 @@ export default class PagePageController extends BaseController {
   };
 
   handleInCorrectAnswerRecieved = () => {
-    console.log(this.model.cardsForGameRemaining);
     this.analiticsCounter.incrementErrorCount(this.model.playedCard.word);
     this.model.gameErrors += 1;
 
