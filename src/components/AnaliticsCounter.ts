@@ -4,7 +4,6 @@ export default class AnaliticsCounter {
   constructor(category:any) {
       this.category = category;
       this.categoryStored = this.getCategory();
-      // console.log(this.categoryStored)
   }
 
   getCategory() {

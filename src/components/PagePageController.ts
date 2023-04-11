@@ -11,8 +11,10 @@ export default class PagePageController extends BaseController {
 
     this.view.bindWordSelected(this.handleWordSelected);
     this.view.bindPlayAudioStarted(this.handlePlayAudioStarted);
+
     this.view.bindCorrectAnswerRecieved(this.handleCorrectAnswerRecieved);
     this.view.bindInCorrectAnswerRecieved(this.handleInCorrectAnswerRecieved);
+
     this.view.bindNewGameAfterVictory(this.handleNewGameAfterVictory);
     this.view.bindNewGameAfterFailure(this.handleNewGameAfterFailure);
     this.view.bindRepeatButtonClicked(this.handleRepeatButtonClicked);
@@ -85,7 +87,6 @@ export default class PagePageController extends BaseController {
       const playCard: any = this.model.cardsForGameRemaining[randomNumber]; // объект playCard
       const mixCardsForGame = this.model.cards.sort(() => Math.random() - 0.5);
       array.push(playCard);
-      // console.log(this.model.cards)
 
       let i = 0;
       do {

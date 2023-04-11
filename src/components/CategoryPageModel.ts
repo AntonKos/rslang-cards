@@ -18,7 +18,6 @@ export default class CategoryPageModel extends BaseModel {
   constructor(currentMenuItem: any) {
     super(currentMenuItem);
     this.pages = cards[1].map((name) => ({ name, hash: `category/${currentMenuItem}/${name}` }));
-    console.log(this.pages);
     this._cardsForGame = this.pages.slice(0);
     this._cardsForGameRemaining = this._cardsForGame.slice(0);
     this._playedCard = null;

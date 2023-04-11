@@ -52,21 +52,11 @@ export default class PagePageView extends BaseView {
     const randomNumber = Math.floor(Math.random() * cards.length);
 
     //вывод цитаты
-
     this.quoteTextWrapper.innerHTML = cards[randomNumber].textQuote;
 
     const audio = this.wrapper.querySelector(`audio.${cards[randomNumber].word}`);
     audio.play();
   }
-
-  // setContinueGame( playCards:any, remainingCards:any,){
-  //   let cards:any = [];
-
-  //   this.wrapper.innerHTML = cards.map(GameCard).join('')  + GameSound
-  //   this.buttonWrapper.innerHTML = RepeatButton();
-  //   this.gameInProcess = true;
-
-  // }
 
   setGameLayout(cards: any) {
     this.starLine.innerHTML = '';
@@ -223,10 +213,15 @@ export default class PagePageView extends BaseView {
   }
 
   playNext(cardsRemaining: any, randomNumber: number, array: any) {
+    // console.log(cardsRemaining[randomNumber].textQuote);
+    console.log(randomNumber);
+
+
     this.wrapper.innerHTML = array.map(GameCard).join('') + GameSound;
     this.buttonWrapper.innerHTML = RepeatButton();
     this.gameInProcess = true;
     const audio = this.wrapper.querySelector(`audio.${cardsRemaining[randomNumber].word}`);
+    this.quoteTextWrapper.innerHTML = cardsRemaining[randomNumber].textQuote;
     audio.play();
   }
 }
