@@ -18,6 +18,7 @@ export default class PagePageView extends BaseView {
   gameInProcess: boolean;
   audioQuote: any;
   quoteTextWrapper:any;
+  quoteText:any;
 
   constructor() {
     super();
@@ -27,6 +28,7 @@ export default class PagePageView extends BaseView {
     this.buttonWrapper = this.main.querySelector('.button-wrapper');
     this.buttonWrapperForQuote = this.main.querySelector('.quote-button-wrapper');
     this.quoteTextWrapper = this.main.querySelector('.quote-text-wrapper');
+    this.quoteText = this.main.querySelector('.quote-text');
     this.gameInProcess = false;
   }
 
@@ -40,20 +42,13 @@ export default class PagePageView extends BaseView {
 
   setNewGameStart(cards: any) {
     //(this.model.cardsForGame)
-
     this.starLine.innerHTML = '';
     this.wrapper.innerHTML = cards.map(GameCard).join('') + GameSound;
     this.buttonWrapper.innerHTML = RepeatButton();
-
     // this.buttonWrapperForQuote.innerHTML = QuoteButton();
-
     this.gameInProcess = true;
-
     const randomNumber = Math.floor(Math.random() * cards.length);
-
-    //вывод цитаты
-    this.quoteTextWrapper.innerHTML = cards[randomNumber].textQuote;
-
+    this.quoteText.innerHTML = cards[randomNumber].textQuote;
     const audio = this.wrapper.querySelector(`audio.${cards[randomNumber].word}`);
     audio.play();
   }
@@ -104,7 +99,7 @@ export default class PagePageView extends BaseView {
   victoryGameOver() {
     this.wrapper.innerHTML = VictoryGameOver + GameSound;
     this.buttonWrapper.innerHTML = '';
-
+    this.quoteText.innerHTML = '';
     const audio = this.wrapper.querySelector('.success-sound');
     audio.play();
 
@@ -114,7 +109,7 @@ export default class PagePageView extends BaseView {
   failureGameOver(count: number) {
     this.wrapper.innerHTML = FailureGameOver(count) + GameSound;
     this.buttonWrapper.innerHTML = '';
-
+    this.quoteText.innerHTML = '';
     const audio = this.wrapper.querySelector('.failure-sound');
     audio.play();
 
@@ -213,15 +208,11 @@ export default class PagePageView extends BaseView {
   }
 
   playNext(cardsRemaining: any, randomNumber: number, array: any) {
-    // console.log(cardsRemaining[randomNumber].textQuote);
-    console.log(randomNumber);
-
-
     this.wrapper.innerHTML = array.map(GameCard).join('') + GameSound;
     this.buttonWrapper.innerHTML = RepeatButton();
     this.gameInProcess = true;
     const audio = this.wrapper.querySelector(`audio.${cardsRemaining[randomNumber].word}`);
-    this.quoteTextWrapper.innerHTML = cardsRemaining[randomNumber].textQuote;
+    this.quoteText.innerHTML = cardsRemaining[randomNumber].textQuote;
     audio.play();
   }
 }
