@@ -19,6 +19,7 @@ export default class PagePageView extends BaseView {
   audioQuote: any;
   quoteTextWrapper:any;
   quoteText:any;
+  handlePlayAudioStarted:any;
 
   constructor() {
     super();
@@ -35,10 +36,14 @@ export default class PagePageView extends BaseView {
   bindNewGameStarted(handler: any) {
     this.buttonWrapper.addEventListener('click', (event: any) => {
       if (event.target.classList.contains('new-game')) {
-        handler(); // controller.handleNewGameStarted() -> выполнение сеттера model.cardsForGame, в котором вызывается view.setNewGame
+        handler();
       }
     });
   }
+
+   bindAudioStarted(callback: any) {
+    this.handlePlayAudioStarted = callback;
+   }
 
   setNewGameStart(cards: any) {
     //(this.model.cardsForGame)
@@ -50,6 +55,7 @@ export default class PagePageView extends BaseView {
     const randomNumber = Math.floor(Math.random() * cards.length);
     this.quoteText.innerHTML = cards[randomNumber].textQuote;
     const audio = this.wrapper.querySelector(`audio.${cards[randomNumber].word}`);
+    this.handlePlayAudioStarted(cards[randomNumber].word);
     audio.play();
   }
 
@@ -61,6 +67,7 @@ export default class PagePageView extends BaseView {
 
   bindWordSelected(handler: any) {
     this.wrapper.addEventListener('click', (event: any) => {
+
       if (event.target.classList.contains('card__container-item')) {
         handler(event.target.dataset.word);
       }
@@ -84,16 +91,16 @@ export default class PagePageView extends BaseView {
   }
 
   bindPlayAudioStarted = (handler: any) => {
-    this.wrapper.addEventListener(
-      'ended',
-      (event: any) => {
-        // каждый раз, когда произносится слово
-        if (event.target.dataset.word === 'audio') {
-          handler(event.target.className);
-        }
-      },
-      true,
-    );
+    // this.wrapper.addEventListener(
+    //   'ended',
+    //   (event: any) => {
+    //     // каждый раз, когда произносится слово
+    //     if (event.target.dataset.word === 'audio') {
+    //       handler(event.target.className);
+    //     }
+    //   },
+    //   true,
+    // );
   };
 
   victoryGameOver() {
@@ -193,8 +200,8 @@ export default class PagePageView extends BaseView {
   }
 
   playQuote(word: string) {
-    const audios = this.wrapper.querySelectorAll(`audio.${word}`);
 
+    const audios = this.wrapper.querySelectorAll(`audio.${word}`);
     const audio = audios[1];
     if (audio.src.slice(-9) !== 'undefined') {
       const btn: any = document.querySelector('.repeat');
@@ -213,6 +220,7 @@ export default class PagePageView extends BaseView {
     this.gameInProcess = true;
     const audio = this.wrapper.querySelector(`audio.${cardsRemaining[randomNumber].word}`);
     this.quoteText.innerHTML = cardsRemaining[randomNumber].textQuote;
+    this.handlePlayAudioStarted(cardsRemaining[randomNumber].word);
     audio.play();
   }
 }
