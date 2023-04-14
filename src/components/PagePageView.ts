@@ -90,19 +90,6 @@ export default class PagePageView extends BaseView {
     });
   }
 
-  bindPlayAudioStarted = (handler: any) => {
-    // this.wrapper.addEventListener(
-    //   'ended',
-    //   (event: any) => {
-    //     // каждый раз, когда произносится слово
-    //     if (event.target.dataset.word === 'audio') {
-    //       handler(event.target.className);
-    //     }
-    //   },
-    //   true,
-    // );
-  };
-
   victoryGameOver() {
     this.wrapper.innerHTML = VictoryGameOver + GameSound;
     this.buttonWrapper.innerHTML = '';
