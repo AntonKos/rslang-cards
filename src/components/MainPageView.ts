@@ -10,8 +10,8 @@ export default class MainPageView extends BaseView {
     this.main.innerHTML = MainWrapper();
     this.wrapper = this.main.querySelector('.main-wrapper');
   }
+
   setCategories(categories: any) {
-    // отвечает за формирования списка категорий на главной странице
     this.wrapper.innerHTML = categories.map((category: any) => Category(category)).join('');
   }
 }
