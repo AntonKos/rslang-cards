@@ -30,11 +30,11 @@ export default class CategoryPageView extends BaseView {
     this.wrapper.innerHTML = cards.map(GameCard).join('');
     this.gameInProcess = true;
     const randomNumber = Math.floor(Math.random() * cards.length);
-    const audio = this.wrapper.querySelector(`audio.${cards[randomNumber].word}`);
     const audios = this.wrapper.querySelectorAll(`audio.${cards[randomNumber].word}`);
+    const audioWord = audios[0];
     const audioQuote = audios[1];
     this.buttonWrapper.innerHTML = RepeatButton(audioQuote.src);
-    audio.play();
+    audioWord.play();
   }
   setGameLayout(pages: any) {
     this.starLine.innerHTML = '';

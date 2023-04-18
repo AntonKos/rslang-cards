@@ -51,12 +51,12 @@ export default class PagePageView extends BaseView {
     this.gameInProcess = true;
     const randomNumber = Math.floor(Math.random() * cards.length);
     this.quoteText.innerHTML = cards[randomNumber].textQuote;
-    const audio = this.wrapper.querySelector(`audio.${cards[randomNumber].word}`);
     const audios = this.wrapper.querySelectorAll(`audio.${cards[randomNumber].word}`);
+    const audioWord = audios[0];
     const audioQuote = audios[1];
     this.handlePlayAudioStarted(cards[randomNumber].word);
     this.buttonWrapper.innerHTML = RepeatButton(audioQuote.src);
-    audio.play();
+    audioWord.play();
   }
 
   setGameLayout(cards: any) {
@@ -204,15 +204,12 @@ export default class PagePageView extends BaseView {
   playNext(cardsRemaining: any, randomNumber: number, array: any) {
     this.wrapper.innerHTML = array.map(GameCard).join('') + GameSound;
     this.gameInProcess = true;
-    const audio = this.wrapper.querySelector(`audio.${cardsRemaining[randomNumber].word}`);
     const audios = this.wrapper.querySelectorAll(`audio.${cardsRemaining[randomNumber].word}`);
+    const audioWord = audios[0];
     const audioQuote = audios[1];
     this.quoteText.innerHTML = cardsRemaining[randomNumber].textQuote;
-    // console.log(audio);
-    // console.log(audio.src);
-    // console.log(audioQuote.src);
     this.buttonWrapper.innerHTML = RepeatButton(audioQuote.src);
     this.handlePlayAudioStarted(cardsRemaining[randomNumber].word);
-    audio.play();
+    audioWord.play();
   }
 }
