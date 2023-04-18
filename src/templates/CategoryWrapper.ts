@@ -5,7 +5,6 @@ const CategoryWrapper = () => `
   <p class="quote-text"></p>
 </div>
 <div class="button-wrapper"></div>
-<div class="quote-button-wrapper"></div>
 `;
 
 export default CategoryWrapper;
