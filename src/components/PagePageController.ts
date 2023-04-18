@@ -10,7 +10,6 @@ export default class PagePageController extends BaseController {
     this.view.bindNewGameStarted(this.handleNewGameStarted);
 
     this.view.bindWordSelected(this.handleWordSelected);
-    // this.view.bindPlayAudioStarted(this.handlePlayAudioStarted);
     this.view.bindAudioStarted(this.handlePlayAudioStarted)
 
     this.view.bindCorrectAnswerRecieved(this.handleCorrectAnswerRecieved);

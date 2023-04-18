@@ -10,9 +10,7 @@ export default class CategoryPageController extends BaseController {
 
 
 
-   this.view.setGameLayout(this.model.pages); // должно быть в функции setTrain, вроде
-
-  //  this.onTrainChange();
+   this.view.setGameLayout(this.model.pages);
   }
 
   handleNewGameStarted = () => {
@@ -26,14 +24,5 @@ export default class CategoryPageController extends BaseController {
   onCardsForGameChange = () => {
     this.view.setNewGameStart(this.model.cardsForGame);
   }
-
-  // onTrainChange = () => {
-  //   this.view.setTrain(this.model.isTrain);
-  //   if (this.model.isTrain) {
-  //       this.view.setTrainingCards(this.model.cards);
-  //   } else {
-  //       this.view.setGameLayout(this.model.cards);
-  //   }
-  // }
 
 }

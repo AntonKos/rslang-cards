@@ -46,11 +46,9 @@ export default class PagePageView extends BaseView {
    }
 
   setNewGameStart(cards: any) {
-    //(this.model.cardsForGame)
     this.starLine.innerHTML = '';
     this.wrapper.innerHTML = cards.map(GameCard).join('') + GameSound;
     this.buttonWrapper.innerHTML = RepeatButton();
-    // this.buttonWrapperForQuote.innerHTML = QuoteButton();
     this.gameInProcess = true;
     const randomNumber = Math.floor(Math.random() * cards.length);
     this.quoteText.innerHTML = cards[randomNumber].textQuote;

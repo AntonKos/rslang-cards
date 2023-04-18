@@ -2,7 +2,6 @@ import BaseView from './BaseView';
 import CategoryWrapper from '../templates/CategoryWrapper';
 import RepeatButton from '../templates/RepeatButton';
 import GameCard from '../templates/GameCard';
-import NewGameButton from '../templates/NewGameButton';
 import Category from '../templates/Category';
 export default class CategoryPageView extends BaseView {
   wrapper: any;
@@ -28,7 +27,7 @@ export default class CategoryPageView extends BaseView {
   }
   setNewGameStart(cards: any) {
     this.starLine.innerHTML = '';
-    this.wrapper.innerHTML = cards.map(GameCard).join(''); // убрал + GameSound
+    this.wrapper.innerHTML = cards.map(GameCard).join('');
     this.buttonWrapper.innerHTML = RepeatButton();
     this.gameInProcess = true;
 
