@@ -153,7 +153,7 @@ export default class PagePageView extends BaseView {
       'ended',
       (event: any) => {
         if (event.target.className === 'correct-sound') {
-          handler(); //вызывается handleCorrectAnswerRecieved, которая вызывает view.playNext(this.model.cardsForGameRemaining);
+          handler(); // handleCorrectAnswerRecieved -> view.playNext(this.model.cardsForGameRemaining);
         }
       },
       true,
