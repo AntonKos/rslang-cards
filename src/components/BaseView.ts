@@ -11,7 +11,7 @@ export default class BaseView {
   switch:any;
 
   constructor() {
-      this.body = document.querySelector('body');
+      this.body = document.querySelector('#root');
       this.body.innerHTML = Page();
       this.header = document.querySelector('header');
       this.headerWrapper = document.querySelector('.header-wrapper');

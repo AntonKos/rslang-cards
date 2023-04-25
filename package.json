@@ -3,7 +3,6 @@
     "version": "0.0.0",
     "private": true,
     "main": "index.js",
-    "author": "vladKB1, Tsvetinskaya-L, AntonKos",
     "license": "MIT",
     "scripts": {
         "build": "webpack",
@@ -40,15 +39,6 @@
         "webpack-cli": "^4.9.2",
         "webpack-dev-server": "^4.7.4"
     },
-    "description": "[Link to Trello board](https://trello.com/invite/b/9X45Gw8t/42e3d226d256e14c376f7fc9448a61f8/rs-lang-mvc-https-wwwtaniarasciacom-javascript-mvc-todo-app)\r [Link to task description]\r [Link to game]()",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/vladKB1/rslang.git"
-    },
-    "bugs": {
-        "url": "https://github.com/vladKB1/rslang/issues"
-    },
-    "homepage": "https://github.com/vladKB1/rslang#readme",
     "dependencies": {
         "pretier": "0.0.1"
     }
